@@ -1,3 +1,3 @@
 import Questionnaire = require("./Questionnaire");
-import { Separator } from "inquirer";
-export { Questionnaire, Separator };
+declare const Separator: typeof import("inquirer/lib/objects/separator");
+export { Questionnaire as Q, Separator };

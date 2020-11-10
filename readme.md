@@ -11,13 +11,13 @@ yarn add semantic-inquirer
 
 ## Usage
 ```javascript
-const {Questionnaire} = require('semantic-inquirer');
+const {Q} = require('semantic-inquirer');
 
 async function main(){
-   const isReady = await Questionnaire.yesOrNo('Are you ready to eat?')
+   const isReady = await Q.yesOrNo('Are you ready to eat?')
    console.log(isReady ? 'You are ready to eat!' : 'I will ask some other time.')
 
-   const isVegetarian = await Questionnaire.trueOrFalse('Vegeteran?');
+   const isVegetarian = await Q.trueOrFalse('Vegeteran?');
    if(isVegetarian){
         // Hide the beefs and chicken
    }
