@@ -1,6 +1,6 @@
 {
   "name": "semantic-inquirer",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Semantic version for inquirer npm package",
   "main": "js/index.js",
   "types": "types/index.d.ts",
@@ -23,5 +23,9 @@
     "ts-node-dev": "^1.0.0",
     "typescript": "^4.0.5"
   },
-  "keywords": ["inquirer", "cli",  "questionnaire"]
+  "keywords": [
+    "inquirer",
+    "cli",
+    "questionnaire"
+  ]
 }
