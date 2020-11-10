@@ -1,0 +1,26 @@
+{
+  "name": "semantic-inquirer",
+  "version": "0.0.1",
+  "description": "Semantic version for inquirer npm package",
+  "main": "js/index.js",
+  "types": "types/index.d.ts",
+  "repository": "https://github.com/trapcodeio/semantic-inquirer.git",
+  "author": "trapcodeio",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "watch": "tsc --watch",
+    "dev": "ts-node-dev --respawn dev/test.ts"
+  },
+  "dependencies": {
+    "inquirer": "^7.3.3",
+    "lodash": "^4.17.20"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^7.3.1",
+    "@types/lodash": "^4.14.165",
+    "@types/node": "^14.14.7",
+    "ts-node-dev": "^1.0.0",
+    "typescript": "^4.0.5"
+  }
+}
