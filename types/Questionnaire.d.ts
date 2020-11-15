@@ -1,5 +1,4 @@
-import { CheckboxChoiceOptions, EditorQuestionOptions, ExpandChoiceOptions, Inquirer, NumberQuestionOptions, PasswordQuestionOptions } from "inquirer";
-import { CheckboxTypeExtender, InputTypeExtender, ListTypeExtender, RawListTypeExtender } from "./types";
+import { CheckboxChoiceOptions, CheckboxQuestionOptions, EditorQuestionOptions, ExpandChoiceOptions, InputQuestionOptions, Inquirer, ListQuestionOptions, NumberQuestionOptions, PasswordQuestionOptions, RawListQuestionOptions } from "inquirer";
 declare class Questionnaire {
     /**
      * Get inquirer module used
@@ -32,7 +31,7 @@ declare class Questionnaire {
      * @example
      * const username = await Questionnaire.ask('what is your username?');
      */
-    static ask(question: string, extend?: InputTypeExtender): Promise<string>;
+    static ask(question: string, extend?: InputQuestionOptions): Promise<string>;
     /**
      * askWithOptions {type: 'rawlist'}
      * @param question
@@ -45,7 +44,7 @@ declare class Questionnaire {
      *    'React'
      * ])
      */
-    static askWithOptions(question: string, options: string[], extend?: RawListTypeExtender): Promise<string>;
+    static askWithOptions(question: string, options: string[], extend?: RawListQuestionOptions): Promise<string>;
     /**
      * askWithOptions and return index instead {type: 'rawlist'}
      * Same as askWithOptions but returns actually array index.
@@ -59,7 +58,7 @@ declare class Questionnaire {
      *    'React'
      * ])
      */
-    static askWithOptionsAndReturnIndex(message: string, list: string[], extend?: RawListTypeExtender): Promise<number>;
+    static askWithOptionsAndReturnIndex(message: string, list: string[], extend?: RawListQuestionOptions): Promise<number>;
     /**
      * selectOne {type: 'list'}
      * @param message
@@ -72,7 +71,7 @@ declare class Questionnaire {
      *    'React'
      * ])
      */
-    static selectOne(message: string, list: string[], extend?: ListTypeExtender): Promise<string>;
+    static selectOne(message: string, list: string[], extend?: ListQuestionOptions): Promise<string>;
     /**
      * selectOneIndex {type: 'rawlist'}
      * Same as selectOne but returns actually array index.
@@ -86,21 +85,21 @@ declare class Questionnaire {
      *    'React'
      * ])
      */
-    static selectOneIndex(message: string, list: string[], extend?: ListTypeExtender): Promise<number>;
+    static selectOneIndex(message: string, list: string[], extend?: ListQuestionOptions): Promise<number>;
     /**
      * Ask question but with detailed options {type: 'expand'}
      * @param question
      * @param options
      * @param extend
      */
-    static askWithDetailedOptions(question: string, options?: ExpandChoiceOptions[], extend?: ListTypeExtender): Promise<string>;
+    static askWithDetailedOptions(question: string, options?: ExpandChoiceOptions[], extend?: ListQuestionOptions): Promise<string>;
     /**
      * Inquire checkbox {type: 'checkbox'}
      * @param question
      * @param choices
      * @param extend
      */
-    static checkbox(question: string, choices: CheckboxChoiceOptions[], extend?: CheckboxTypeExtender): Promise<any[]>;
+    static checkbox(question: string, choices: CheckboxChoiceOptions[], extend?: CheckboxQuestionOptions): Promise<any[]>;
     /**
      * Ask for single/multiple choice(s) {type: 'checkbox'}
      * @param message
@@ -113,7 +112,7 @@ declare class Questionnaire {
      *    'React'
      * ])
      */
-    static choose(message: string, choices: string[] | CheckboxChoiceOptions[], extend?: CheckboxTypeExtender): Promise<any[]>;
+    static choose(message: string, choices: string[] | CheckboxChoiceOptions[], extend?: CheckboxQuestionOptions): Promise<any[]>;
     /**
      * Ask for number {type: 'number'}
      * @param question

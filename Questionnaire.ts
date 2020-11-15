@@ -2,15 +2,14 @@ import inquirer = require("inquirer");
 import {makeName} from "./Functions";
 import _ from "lodash";
 import {
-    CheckboxChoiceOptions, EditorQuestionOptions,
-    ExpandChoiceOptions,
-    Inquirer,
+    CheckboxChoiceOptions, CheckboxQuestionOptions, EditorQuestionOptions,
+    ExpandChoiceOptions, InputQuestionOptions,
+    Inquirer, ListQuestionOptions,
     NumberQuestionOptions,
-    PasswordQuestionOptions
+    PasswordQuestionOptions, RawListQuestionOptions
 } from "inquirer";
 import {
-    AnonymousAnswer, CheckboxTypeExtender, InputTypeExtender,
-    ListTypeExtender, RawListTypeExtender
+    AnonymousAnswer,
 } from "./types";
 
 const {prompt} = inquirer;
@@ -79,7 +78,7 @@ class Questionnaire {
      * @example
      * const username = await Questionnaire.ask('what is your username?');
      */
-    static async ask(question: string, extend: InputTypeExtender = {}): Promise<string> {
+    static async ask(question: string, extend: InputQuestionOptions = {}): Promise<string> {
 
         // Generate Random Name
         const name = makeName();
@@ -108,7 +107,7 @@ class Questionnaire {
      *    'React'
      * ])
      */
-    static async askWithOptions(question: string, options: string[], extend: RawListTypeExtender = {}): Promise<string> {
+    static async askWithOptions(question: string, options: string[], extend: RawListQuestionOptions = {}): Promise<string> {
         // Generate Random Name
         const name = makeName();
 
@@ -139,7 +138,7 @@ class Questionnaire {
      *    'React'
      * ])
      */
-    static async askWithOptionsAndReturnIndex(message: string, list: string[], extend: RawListTypeExtender = {}): Promise<number> {
+    static async askWithOptionsAndReturnIndex(message: string, list: string[], extend: RawListQuestionOptions = {}): Promise<number> {
         return list.indexOf(await Questionnaire.askWithOptions(message, list, extend))
     }
 
@@ -155,7 +154,7 @@ class Questionnaire {
      *    'React'
      * ])
      */
-    static async selectOne(message: string, list: string[], extend: ListTypeExtender = {}): Promise<string> {
+    static async selectOne(message: string, list: string[], extend: ListQuestionOptions = {}): Promise<string> {
         // Generate Random Name
         const name = makeName();
 
@@ -186,7 +185,7 @@ class Questionnaire {
      *    'React'
      * ])
      */
-    static async selectOneIndex(message: string, list: string[], extend: ListTypeExtender = {}): Promise<number> {
+    static async selectOneIndex(message: string, list: string[], extend: ListQuestionOptions = {}): Promise<number> {
         return list.indexOf(await Questionnaire.selectOne(message, list, extend))
     }
 
@@ -197,7 +196,7 @@ class Questionnaire {
      * @param options
      * @param extend
      */
-    static async askWithDetailedOptions(question: string, options?: ExpandChoiceOptions[], extend: ListTypeExtender = {}): Promise<string> {
+    static async askWithDetailedOptions(question: string, options?: ExpandChoiceOptions[], extend: ListQuestionOptions = {}): Promise<string> {
 
         // Generate Random Name
         const name = makeName();
@@ -221,7 +220,7 @@ class Questionnaire {
      * @param choices
      * @param extend
      */
-    static async checkbox(question: string, choices: CheckboxChoiceOptions [], extend: CheckboxTypeExtender = {}): Promise<any[]> {
+    static async checkbox(question: string, choices: CheckboxChoiceOptions [], extend: CheckboxQuestionOptions = {}): Promise<any[]> {
 
         // Generate Random Name
         const name = makeName();
@@ -251,7 +250,7 @@ class Questionnaire {
      *    'React'
      * ])
      */
-    static async choose(message: string, choices: string[] | CheckboxChoiceOptions[], extend: CheckboxTypeExtender = {}): Promise<any[]> {
+    static async choose(message: string, choices: string[] | CheckboxChoiceOptions[], extend: CheckboxQuestionOptions = {}): Promise<any[]> {
         const isSHortHand = typeof choices[0] === 'string';
 
         if (!isSHortHand) {
