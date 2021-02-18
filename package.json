@@ -1,6 +1,6 @@
 {
   "name": "semantic-inquirer",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "Semantic version for inquirer npm package",
   "main": "js/index.js",
   "types": "js/index.d.ts",
