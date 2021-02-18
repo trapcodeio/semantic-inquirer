@@ -3,12 +3,13 @@
   "version": "0.0.7",
   "description": "Semantic version for inquirer npm package",
   "main": "js/index.js",
-  "types": "types/index.d.ts",
+  "types": "js/index.d.ts",
   "repository": "https://github.com/trapcodeio/semantic-inquirer.git",
   "author": "trapcodeio",
   "license": "MIT",
   "private": false,
   "scripts": {
+    "build": "tsc && ts-node build",
     "watch": "tsc --watch",
     "dev": "ts-node-dev --respawn dev/test.ts"
   },
