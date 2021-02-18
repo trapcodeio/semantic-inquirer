@@ -1,5 +1,4 @@
-import Questionnaire = require("./Questionnaire");
-import inquirer = require("inquirer");
-const {Separator} = inquirer;
+import {Separator} from "inquirer";
+import Questionnaire from "./Questionnaire";
 
-export {Questionnaire as Q, Separator}
+export {Questionnaire, Questionnaire as Q, Separator}
